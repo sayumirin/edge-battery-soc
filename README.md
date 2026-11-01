@@ -65,31 +65,6 @@ The table reports SoC RMSE in percentage points over the SoC 40–100% range, as
 - a 1D-CNN;
 - a voltage/current-only GRU ablation.
 
-## Repository layout
-
-```text
-src/battery_shift/   data loading, models, training, evaluation, export, LG adapter, experiment stages
-scripts/             preparation, pipeline, baselines, C verification, figures, report, validation
-configs/             one YAML file per preparation step, training run and experiment
-embedded/            portable C99 float32 GRU kernel (gru.c)
-tests/               pytest suite (leakage, labels, windows, adaptation, streaming, export parity)
-results/             summary tables, figures and verification records (no raw data or checkpoints)
-report/              six-page technical report (PDF)
-```
-
-The main result folders are:
-
-| Folder | Contents |
-|---|---|
-| `results/modular-v3/` | E1–E9 and streaming results, with a summary README and `verification.json` |
-| `results/c-inference-v3/` | C/PyTorch parity checks and generated weight headers |
-| `results/cnn-v2/` | 1D-CNN baseline |
-| `results/physics-v1/` | ECM/EKF baseline |
-| `results/no-temperature-v1/` | Voltage/current-only ablation |
-| `results/soh-v1/` | NASA SoH reference run |
-| `results/diagnostics-v1/` | Data audits, capacity reference and exploratory plots |
-| `results/fix-check-v1/` | Diagnostic check that motivated the protocol revision (see below) |
-| `results/mvp-v1/`, `results/extensions-v1/`, `results/cross-cell-v1/`, `results/modular-v2/` | Results under the earlier protocol, kept for reference |
 
 ## Reproducing
 
