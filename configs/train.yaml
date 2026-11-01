@@ -1,0 +1,10 @@
+experiment: train
+prepared: data/interim
+training_config: configs/training.yaml
+seeds:
+- 17
+- 42
+- 2026
+- 101
+- 314
+output: runs/source-v3

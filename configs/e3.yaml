@@ -1,0 +1,23 @@
+prepared: data/interim
+source: runs/source-v3
+seeds:
+- 17
+- 42
+- 2026
+experiment: E3
+temperatures:
+- 10
+- 0
+- -10
+- -20
+output: results/modular-v3/E3
+adapt:
+  seconds: 1800
+  stride: 10
+  batch_size: 32
+  steps: 300
+  learning_rate: 0.001
+  modes:
+  - head
+  - input
+  - all

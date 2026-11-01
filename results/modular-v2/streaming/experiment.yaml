@@ -1,0 +1,15 @@
+prepared: data/interim
+source: runs\source-v2
+seeds:
+- 17
+- 42
+- 2026
+experiment: streaming
+temperatures:
+- 25
+- 10
+- 0
+- -10
+- -20
+output: results\modular-v2\streaming
+chunk_size: 512

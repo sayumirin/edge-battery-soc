@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "legacy_run": "runs\\disk-compat-smoke-v2",
+  "config": "configs/smoke.yaml",
+  "metric_sha256": "46d8a7e8c94bcc2a8067acac6ca128ca6ddc10e07d4b8ba2c5763dc14e4132f1",
+  "c_max_abs_error": 7.152557373046875e-07,
+  "c_stream_steps": 45000,
+  "scope": "Legacy entrypoints after disk-boundary refactor; smoke architecture only"
+}

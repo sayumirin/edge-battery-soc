@@ -1,0 +1,15 @@
+{
+  "source_url": "https://phm-datasets.s3.amazonaws.com/NASA/5.%20Battery%20Data%20Set.zip",
+  "sha256": "82302a7db4fc1b34e0b6676326610438d43b816bdf11a69d1d012a464ef2f92e",
+  "features": [
+    "voltage_start",
+    "voltage_600",
+    "voltage_mean",
+    "temperature_rise",
+    "current_mean"
+  ],
+  "capacity_reference_ah": 2,
+  "feature_horizon_seconds": 600,
+  "model": "ridge alpha=1 with train-only scaling",
+  "limitations": "Four cells only; different cutoff voltages/protocols confound cell generalization. LOCO deterministic across seeds, so SD=0 is not independent evidence. Random-cycle comparison intentionally allows same-cell leakage, but no repeated rows."
+}

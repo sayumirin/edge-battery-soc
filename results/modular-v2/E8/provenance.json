@@ -1,0 +1,22 @@
+{
+  "config_sha256": "2bcac965d0ef413b9a3c887a543cc9ecc90e06ecf4247acfd63b51da6b6e4860",
+  "prepared_sha256": "fe52614575bb401b36b1e6e5d711d8e8d718cd3ae9e10bce57f2bc2002e7b908",
+  "code_sha256": "c1ee6adcbec82d44e304eb51d111f01044dc85a0b02c903e1110a186ca76cef6",
+  "source_sha256": {
+    "src/battery_shift/artifacts.py": "e8ff7096551673b9951c360479da4360c6bf765cb8fb2744a1aaddd22b322a18",
+    "src/battery_shift/data.py": "f582387f002946e2cf9c93ee1871f4acadf8900bc34df852a4f64293c1ce9b47",
+    "src/battery_shift/evaluate.py": "fd915b4f517aca6a7b4a25ea71b04a855bc49886af4e8a3480f37686c1f44ee5",
+    "src/battery_shift/experiments.py": "c1ee6adcbec82d44e304eb51d111f01044dc85a0b02c903e1110a186ca76cef6",
+    "src/battery_shift/export.py": "32422c7bb18b02fead495d63e5eb5b3ac2e07bbd5c9d23daeac8b96dd245cbce",
+    "src/battery_shift/lg.py": "d68b9d705a2a8e89cb38cee03d770f6a851ad2a8d91bcffdbee08d944e176dbe",
+    "src/battery_shift/models.py": "2325326a1136c169402124c740cdada75222d0f083b66a5bab76afe7594da427",
+    "src/battery_shift/noise.py": "d8f332cee6d85f4f9b06916cb60b521bc255d6a4c5803ac7e5eebdd8ef9dc63e",
+    "src/battery_shift/physics.py": "3ac9440b285f8d95980490a79afc4e59825d58ef34f43886d6deaad16fe98190",
+    "src/battery_shift/run.py": "a0d9d690703eccb6241f77615c29d6ed478a2ba62b730816a8724ed1d29da061",
+    "src/battery_shift/train.py": "45e33ec25428d1d1209d91bbf6d9aba981d69686279ece1521bf95f5b8cd5a45",
+    "src/battery_shift/__init__.py": "747452072b50c22977190bafc3c40ee55c6f237d2ec6ceb2bb2469acfc2de92a"
+  },
+  "source": "runs\\source-v2",
+  "models_sha256": "c306450acc1729878b4f37fb9bd72c638f4a4b455ed248513aa4917ef735e131",
+  "normalization_sha256": "9ef72c8efe5e6bc545e8b2a9a6bfed31b7da652feef747f7e609975e42960dd1"
+}

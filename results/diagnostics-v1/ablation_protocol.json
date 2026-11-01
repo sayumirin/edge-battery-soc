@@ -1,0 +1,12 @@
+{
+  "baseline": "runs/delivery-20261029T013807/mvp",
+  "candidate": "runs/delivery-20261029T013807/no-temperature",
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "scope": "exploratory after observing baseline test results; requires independent confirmation",
+  "active_definition": "abs(current_a) > 0.05 A at window endpoint; full history including preceding rest retained",
+  "paired_endpoints_verified": true
+}

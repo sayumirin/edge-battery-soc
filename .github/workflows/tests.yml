@@ -1,0 +1,17 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.11'
+      - run: uv sync --frozen
+      - run: uv run ruff check .
+      - run: uv run pytest
+      - run: uv run python scripts/download.py
+      - run: uv run python scripts/prepare_data.py
+      - run: uv run python -m battery_shift.run --config configs/smoke.yaml --output runs/ci-smoke
+      - run: uv run python scripts/verify_c.py --run runs/ci-smoke --output runs/ci-c

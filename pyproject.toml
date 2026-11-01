@@ -1,0 +1,24 @@
+[project]
+name = "battery-shift"
+version = "0.1.0"
+description = "Reproducible battery SoC temperature transfer experiments"
+requires-python = ">=3.11,<3.13"
+dependencies = ["numpy>=1.26", "pandas>=2.2", "scipy>=1.12", "pyarrow>=16", "torch>=2.5,<2.11", "omegaconf>=2.3", "matplotlib>=3.9", "onnx>=1.17", "onnxruntime>=1.20"]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.9"]
+report = ["reportlab>=4", "pypdf>=5"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--basetemp=.pytest_cache/tmp"
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

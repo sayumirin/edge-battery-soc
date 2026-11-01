@@ -1,0 +1,16 @@
+{
+  "environment": ".validation-venv",
+  "method": "uv sync --frozen --python 3.11 into new environment on same machine; cached dependency downloads and existing SHA-256 verified raw files",
+  "tests_passed": 14,
+  "configuration": "configs/smoke.yaml",
+  "seed_count": 3,
+  "temperature_count": 5,
+  "exact_tables": [
+    "metrics.csv",
+    "summary.csv",
+    "model_sizes.csv"
+  ],
+  "prediction_csvs_equal": 15,
+  "max_prediction_delta": 0.0,
+  "limits": "Not another machine, not fresh OS, not full default configuration; remote CI untested"
+}

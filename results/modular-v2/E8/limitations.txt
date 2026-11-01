@@ -1,0 +1,1 @@
+Five models in one ensemble; not independent ensemble repeats. Source validation was reused for early stopping. Empirical coverage only; no independent calibration guarantee.

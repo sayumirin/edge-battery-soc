@@ -1,0 +1,55 @@
+prepared: data/interim
+source: runs/source-v3
+seeds:
+- 17
+- 42
+- 2026
+experiment: E4
+temperatures:
+- 25
+- 10
+- 0
+- -10
+- -20
+output: results/modular-v3/E4
+eval_stride: 30
+noise:
+  voltage:
+  - 0
+  - 1
+  - 2
+  - 4
+  current:
+  - -4
+  - -2
+  - -1
+  - 0
+  - 1
+  - 2
+  - 4
+  temperature:
+  - -4
+  - -2
+  - -1
+  - 0
+  - 1
+  - 2
+  - 4
+  dropout:
+  - 0
+  - 0.01
+  - 0.05
+  - 0.1
+  hold:
+  - 1
+  - 2
+  - 5
+  - 10
+  crop:
+  - 0
+  - 0.25
+  - 0.5
+augmentation:
+  voltage: 1
+  current: 1
+  temperature: 1

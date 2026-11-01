@@ -1,0 +1,4 @@
+seed,max_abs_error,real_stream_steps,state_bytes,weight_float_bytes,explicit_step_float_workspace_bytes,host_seconds_per_step,compiler,scope
+17,1.2218952178955078e-06,15000,128,14424,176,2.04561e-06,/usr/bin/cc,host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead
+42,8.158385753631592e-07,15000,128,14424,176,2.00765e-06,/usr/bin/cc,host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead
+2026,3.5762786865234375e-07,15000,128,14424,176,1.8578e-06,/usr/bin/cc,host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead

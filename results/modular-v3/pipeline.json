@@ -1,0 +1,154 @@
+{
+  "status": "completed",
+  "source": "runs\\source-v3",
+  "reuse_source": true,
+  "stages": [
+    {
+      "stage": "E1",
+      "command": [
+        "-m",
+        "battery_shift.experiments",
+        "--config",
+        "configs/e1.yaml",
+        "--source",
+        "runs\\source-v3",
+        "--output",
+        "runs\\modular-v3\\E1"
+      ],
+      "status": "completed"
+    },
+    {
+      "stage": "E2",
+      "command": [
+        "-m",
+        "battery_shift.experiments",
+        "--config",
+        "configs/e2.yaml",
+        "--source",
+        "runs\\source-v3",
+        "--output",
+        "runs\\modular-v3\\E2"
+      ],
+      "status": "completed"
+    },
+    {
+      "stage": "E3",
+      "command": [
+        "-m",
+        "battery_shift.experiments",
+        "--config",
+        "configs/e3.yaml",
+        "--source",
+        "runs\\source-v3",
+        "--output",
+        "runs\\modular-v3\\E3"
+      ],
+      "status": "completed"
+    },
+    {
+      "stage": "E4",
+      "command": [
+        "-m",
+        "battery_shift.experiments",
+        "--config",
+        "configs/e4.yaml",
+        "--source",
+        "runs\\source-v3",
+        "--output",
+        "runs\\modular-v3\\E4"
+      ],
+      "status": "completed"
+    },
+    {
+      "stage": "E5",
+      "command": [
+        "scripts/soh.py",
+        "--config",
+        "configs/e5.yaml",
+        "--output",
+        "runs\\modular-v3\\E5"
+      ],
+      "status": "completed"
+    },
+    {
+      "stage": "E6",
+      "command": [
+        "-m",
+        "battery_shift.experiments",
+        "--config",
+        "configs/e6.yaml",
+        "--source",
+        "runs\\source-v3",
+        "--output",
+        "runs\\modular-v3\\E6"
+      ],
+      "status": "completed"
+    },
+    {
+      "stage": "E7",
+      "command": [
+        "scripts/cross_cell.py",
+        "--config",
+        "configs/e7.yaml",
+        "--base",
+        "runs\\source-v3",
+        "--output",
+        "runs\\modular-v3\\E7"
+      ],
+      "status": "completed"
+    },
+    {
+      "stage": "E8",
+      "command": [
+        "-m",
+        "battery_shift.experiments",
+        "--config",
+        "configs/e8.yaml",
+        "--source",
+        "runs\\source-v3",
+        "--output",
+        "runs\\modular-v3\\E8"
+      ],
+      "status": "completed"
+    },
+    {
+      "stage": "E9",
+      "command": [
+        "-m",
+        "battery_shift.experiments",
+        "--config",
+        "configs/e9.yaml",
+        "--source",
+        "runs\\source-v3",
+        "--output",
+        "runs\\modular-v3\\E9"
+      ],
+      "status": "completed"
+    },
+    {
+      "stage": "streaming",
+      "command": [
+        "-m",
+        "battery_shift.experiments",
+        "--config",
+        "configs/streaming.yaml",
+        "--source",
+        "runs\\source-v3",
+        "--output",
+        "runs\\modular-v3\\streaming"
+      ],
+      "status": "completed"
+    },
+    {
+      "stage": "figures",
+      "command": [
+        "scripts/modular_figures.py",
+        "--results",
+        "runs\\modular-v3"
+      ],
+      "status": "completed",
+      "note": "first attempt failed on E9 table column access (DataFrame.update); rerun after the fix, no experiment re-executed"
+    }
+  ],
+  "pipeline_config_sha256": "6804108ae511e31be203cabc8b815b45cc5efab3f02554b75d369821559b6bef"
+}

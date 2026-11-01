@@ -1,0 +1,17 @@
+output: results/modular-v3
+preparation:
+  - configs/prepare.yaml
+  - configs/prepare_lg.yaml
+  - configs/prepare_nasa.yaml
+training: configs/train.yaml
+stages:
+  - config: configs/e1.yaml
+  - config: configs/e2.yaml
+  - config: configs/e3.yaml
+  - config: configs/e4.yaml
+  - config: configs/e5.yaml
+  - config: configs/e6.yaml
+  - config: configs/e7.yaml
+  - config: configs/e8.yaml
+  - config: configs/e9.yaml
+  - config: configs/streaming.yaml

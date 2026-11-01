@@ -1,0 +1,58 @@
+{
+  "status": "completed",
+  "platforms": [
+    "Windows/MSVC",
+    "WSL2 Ubuntu 24.04/GCC"
+  ],
+  "independent_physical_machine": false,
+  "file_endpoints_and_labels_equal": true,
+  "metrics_max_delta_pp": {
+    "Coulomb +5pp": {
+      "rmse": 0.0,
+      "mae": 0.0,
+      "max_error": 0.0
+    },
+    "GRU direct": {
+      "rmse": 1.52587890625e-05,
+      "mae": 1.52587890625e-05,
+      "max_error": 2.288818359375e-05
+    },
+    "GRU int8": {
+      "rmse": 0.15830230712890625,
+      "mae": 0.16266632080078125,
+      "max_error": 0.16269683837890625
+    },
+    "GRU target stats": {
+      "rmse": 3.814697265625e-06,
+      "mae": 7.62939453125e-06,
+      "max_error": 1.52587890625e-05
+    },
+    "GRU tune all": {
+      "rmse": 7.62939453125e-06,
+      "mae": 1.52587890625e-05,
+      "max_error": 2.288818359375e-05
+    },
+    "GRU tune head": {
+      "rmse": 7.62939453125e-06,
+      "mae": 1.1444091796875e-05,
+      "max_error": 2.288818359375e-05
+    },
+    "GRU tune input": {
+      "rmse": 1.52587890625e-05,
+      "mae": 1.52587890625e-05,
+      "max_error": 2.288818359375e-05
+    }
+  },
+  "predictions_max_abs_delta": {
+    "direct": 4.4999999999906226e-07,
+    "int8": 0.006039600000000034,
+    "coulomb": 0.0
+  },
+  "c_max_abs_error": 1.2218952178955078e-06,
+  "interpretation": "Float32 results closely agree; dynamic int8 is backend-dependent and not bitwise portable. These are observed differences, not a tuned pass threshold or remote CI result.",
+  "lg_cross_cell": {
+    "status": "completed_on_both_platforms",
+    "metric_rows": 150,
+    "max_rmse_delta_pp": 1.1444091796875e-05
+  }
+}

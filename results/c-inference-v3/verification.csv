@@ -1,0 +1,6 @@
+seed,max_abs_error,real_stream_steps,state_bytes,weight_float_bytes,explicit_step_float_workspace_bytes,host_seconds_per_step,compiler,scope
+17,2.980232238769531e-07,15000,128,14424,176,3.09e-06,MSVC /O2 /std:c11,host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead
+42,4.172325134277344e-07,15000,128,14424,176,2.58e-06,MSVC /O2 /std:c11,host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead
+2026,4.76837158203125e-07,15000,128,14424,176,2.77e-06,MSVC /O2 /std:c11,host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead
+101,3.5762786865234375e-07,15000,128,14424,176,2.96e-06,MSVC /O2 /std:c11,host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead
+314,2.980232238769531e-07,15000,128,14424,176,2.88e-06,MSVC /O2 /std:c11,host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead

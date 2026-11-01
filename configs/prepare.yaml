@@ -1,0 +1,3 @@
+dataset: panasonic
+training_config: configs/training.yaml
+output: data/interim

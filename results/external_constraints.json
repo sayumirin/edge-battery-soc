@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-29",
+  "e7": {
+    "status": "completed_with_original_official_browser_download",
+    "attempts": [
+      {
+        "url": "https://data.mendeley.com/public-api/datasets/b5mj79w5w9/versions/2/files",
+        "response": "HTTP 403"
+      },
+      {
+        "url": "https://data.mendeley.com/datasets/b5mj79w5w9/2",
+        "response": "HTTP 403"
+      },
+      {
+        "url": "https://github.com/ahmedsalahacc/efficient-feature-attention-SoC-estimation",
+        "revision": "90364a32171b751df64ef3425dabb1d17c13ebb5",
+        "result": "datasets directory contains PUT_DATASET_HERE.txt only"
+      }
+    ],
+    "resolution": "Normal browser Download All succeeded; 24 valid MAT files used; corrupted 10 C LA92 explicitly excluded.",
+    "evidence": "results/cross-cell-v1/data_audit.json"
+  },
+  "mcu": "No specified connected STM32/ESP32 hardware; host measurements only",
+  "capacity": "Official complete Panasonic archive audited: only 25 C C/20 exists. Original five-temperature assumption corrected; nominal primary and sensitivity reported. LG five-temperature C/20 audited.",
+  "remote_ci": "Explicitly deferred by user. No remote or noninteractive GitHub credential available.",
+  "cross_platform": "Full three-seed default run and GCC parity completed in WSL2 Ubuntu 24.04; same physical host. Separate-machine access unavailable and remote CI deferred."
+}

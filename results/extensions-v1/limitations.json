@@ -1,0 +1,5 @@
+{
+  "e4": "Positive current/temperature offsets; augmentation combines 5mV, +50mA, +2C. Hold/forward fill are causal within each file. Crop changes endpoints and is evaluated separately.",
+  "e8": "3 seed ensemble, not three independent ensemble repeats. Validation reused for early stopping. Empirical coverage only; temporal dependence and domain shift invalidate iid guarantees.",
+  "e9": "Updates consume disjoint chronological chunks from adaptation Cycle 1 only. Test data never updates model. Pseudo labels assume verified full-charge anchor and nominal capacity; no replay regularizer. Source error across updates measures forgetting."
+}

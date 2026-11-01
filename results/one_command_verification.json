@@ -1,0 +1,16 @@
+{
+  "command": "./scripts/reproduce.ps1",
+  "environment": ".validation-venv",
+  "output": "runs/20261029T010214337889Z",
+  "stages": [
+    "frozen dependency sync",
+    "raw checksum validation",
+    "24 tests",
+    "E1 E2 E3 E6 three seeds five temperatures"
+  ],
+  "table_equality": {
+    "metrics.csv": "exact",
+    "summary.csv": "exact",
+    "model_sizes.csv": "exact"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "status": "passed",
+  "stages": {
+    "E1": {
+      "rows": 12,
+      "sha256": "062187f26482569f339b92f671c0d02ef2cbab9bb4ba9e69e342547f710e5b58"
+    },
+    "E2": {
+      "rows": 48,
+      "sha256": "6442b1e85758286cfe0521cf7adc4086569d399347b7bbcff2c75143f9b4f061"
+    },
+    "E3": {
+      "rows": 120,
+      "sha256": "677305f7df4c9846bcaa84670b5281ea9fd1b8d7743e0ff2fe77951db417b568"
+    },
+    "E4": {
+      "rows": 1740,
+      "sha256": "18b938e30c178107e5dc304398ed2d1c6efe9313d797d8a16a12d551507c3500"
+    },
+    "E5": {
+      "rows": 15,
+      "sha256": "35e57e9b7de6993c33dc2ddb8607d49335bf805bb6b16c94be493d9083a38499"
+    },
+    "E6": {
+      "rows": 60,
+      "sha256": "02440827609e0d56c96e8da91b93a9603023860910ea413219b465de90b3ea73"
+    },
+    "E7": {
+      "rows": 150,
+      "sha256": "73f9d58ba04a4ff08caa577191191266afbd97ae3a23901ce0fa4b04abf57221"
+    },
+    "E8": {
+      "rows": 20,
+      "sha256": "b02ded7ef3a47f6e880dd888a13c8bf93d1d802dd0c3d7631d593452bd0979c8"
+    },
+    "E9": {
+      "rows": 384,
+      "sha256": "3bec26fde5977b19ac0523add1c145f51967e3bb99e1b736a1524e95026b785c"
+    },
+    "streaming": {
+      "rows": 240,
+      "sha256": "8eaacc0fd4b250ce76d95657841a8f8fb868f9406af630967eb869927002af4d"
+    }
+  },
+  "ensemble_members": [
+    17,
+    42,
+    2026,
+    101,
+    314
+  ],
+  "bidirectional_bias": true,
+  "streaming_files": 45,
+  "stream_samples": 577041,
+  "matched_stream_window_endpoints": true,
+  "independent_configs": true,
+  "persisted_inputs_only": true,
+  "source": "runs\\source-v2",
+  "source_manifest_sha256": "c306450acc1729878b4f37fb9bd72c638f4a4b455ed248513aa4917ef735e131",
+  "unchanged_protocol_regression": {
+    "E1": {
+      "matched_rows": 12,
+      "max_rmse_delta": 0.0
+    },
+    "E2": {
+      "matched_rows": 48,
+      "max_rmse_delta": 0.0
+    },
+    "E3": {
+      "matched_rows": 120,
+      "max_rmse_delta": 0.0
+    },
+    "E6": {
+      "matched_rows": 60,
+      "max_rmse_delta": 0.0
+    },
+    "E4": {
+      "matched_rows": 1380,
+      "max_rmse_delta": 0.0
+    },
+    "E5": {
+      "matched_rows": 15,
+      "max_rmse_delta": 0.0
+    },
+    "E7": {
+      "matched_rows": 150,
+      "max_rmse_delta": 0.0
+    },
+    "E9": {
+      "matched_rows": 384,
+      "max_rmse_delta": 0.0
+    }
+  },
+  "limitations": [
+    "MCU not measured",
+    "Five-model intervals reuse early-stopping validation",
+    "Offline 1 Hz interpolation remains noncausal; streaming evaluation changes state lifetime only"
+  ]
+}

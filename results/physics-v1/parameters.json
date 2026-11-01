@@ -1,0 +1,9 @@
+{
+  "r0_ohm": 0.03633409457969274,
+  "r1_ohm": 0.2937726364437542,
+  "tau_s": 826.5846086237259,
+  "fit_voltage_rmse_v": 0.03542118929043067,
+  "source_url": "https://raw.githubusercontent.com/fededc88/Panasonic-18650PF-Data/6d720489c9b5b95624e448d44e8e2c0e48bdacaf/Panasonic%2018650PF%20Data/25degC/5%20pulse%20disch/03-11-17_08.47%2025degC_5Pulse_HPPC_Pan18650PF.mat",
+  "sha256": "21f5d94812f5059bc484ce44cccf1485c3b0dc02e36f36d80f9d24173ac1a8e6",
+  "limitations": "One constant RC branch fitted to 25C HPPC, gaps >30s reset polarization. Quasi-OCV from later 25C C/20 discharge, on nominal 2.9Ah scale; ageing/hysteresis not corrected. No target calibration. Deterministic baseline; repeat seeds would not measure uncertainty."
+}

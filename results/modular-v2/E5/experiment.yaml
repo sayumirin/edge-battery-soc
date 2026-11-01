@@ -1,0 +1,15 @@
+experiment: E5
+prepared: data/interim/nasa
+output: results\modular-v2\E5
+seeds:
+- 17
+- 42
+- 2026
+train_fraction: 0.8
+ridge_alpha: 1.0
+features:
+- voltage_start
+- voltage_600
+- voltage_mean
+- temperature_rise
+- current_mean

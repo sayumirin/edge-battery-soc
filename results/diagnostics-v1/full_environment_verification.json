@@ -1,0 +1,9 @@
+{
+  "configuration": "configs/mvp.yaml",
+  "environment": ".validation-venv",
+  "same_machine": true,
+  "all_tables_equal": true,
+  "prediction_files_equal": 15,
+  "exact_numeric_equality": true,
+  "limits": "Cached dependency downloads and existing checksum-verified raw data. Not cross-machine or remote CI."
+}

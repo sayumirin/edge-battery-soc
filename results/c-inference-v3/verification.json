@@ -1,0 +1,57 @@
+[
+  {
+    "seed": 17,
+    "max_abs_error": 2.980232238769531e-07,
+    "real_stream_steps": 15000,
+    "state_bytes": 128,
+    "weight_float_bytes": 14424,
+    "explicit_step_float_workspace_bytes": 176,
+    "host_seconds_per_step": 3.09e-06,
+    "compiler": "MSVC /O2 /std:c11",
+    "scope": "host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead"
+  },
+  {
+    "seed": 42,
+    "max_abs_error": 4.172325134277344e-07,
+    "real_stream_steps": 15000,
+    "state_bytes": 128,
+    "weight_float_bytes": 14424,
+    "explicit_step_float_workspace_bytes": 176,
+    "host_seconds_per_step": 2.58e-06,
+    "compiler": "MSVC /O2 /std:c11",
+    "scope": "host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead"
+  },
+  {
+    "seed": 2026,
+    "max_abs_error": 4.76837158203125e-07,
+    "real_stream_steps": 15000,
+    "state_bytes": 128,
+    "weight_float_bytes": 14424,
+    "explicit_step_float_workspace_bytes": 176,
+    "host_seconds_per_step": 2.77e-06,
+    "compiler": "MSVC /O2 /std:c11",
+    "scope": "host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead"
+  },
+  {
+    "seed": 101,
+    "max_abs_error": 3.5762786865234375e-07,
+    "real_stream_steps": 15000,
+    "state_bytes": 128,
+    "weight_float_bytes": 14424,
+    "explicit_step_float_workspace_bytes": 176,
+    "host_seconds_per_step": 2.96e-06,
+    "compiler": "MSVC /O2 /std:c11",
+    "scope": "host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead"
+  },
+  {
+    "seed": 314,
+    "max_abs_error": 2.980232238769531e-07,
+    "real_stream_steps": 15000,
+    "state_bytes": 128,
+    "weight_float_bytes": 14424,
+    "explicit_step_float_workspace_bytes": 176,
+    "host_seconds_per_step": 2.88e-06,
+    "compiler": "MSVC /O2 /std:c11",
+    "scope": "host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead"
+  }
+]

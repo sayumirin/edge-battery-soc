@@ -1,0 +1,23 @@
+prepared: data/interim
+source: runs/source-v3
+seeds:
+- 17
+- 42
+- 2026
+experiment: E9
+temperatures:
+- 10
+- 0
+- -10
+- -20
+output: results/modular-v3/E9
+steps_per_update: 100
+batch_size: 32
+stride: 10
+learning_rate: 0.001
+chunk_seconds: 600
+chunks: 3
+anchor_tolerance: 0.001
+supervision:
+- true_label
+- coulomb_pseudo

@@ -1,0 +1,114 @@
+{
+  "source": "https://data.mendeley.com/datasets/wykht8y7tg/1",
+  "archive_sha256": "0098dc90cfb645beb7a1daff1d9721f7eebfa85dca272e5f6adb6e6ca46c14d8",
+  "verified_mirror_files": [
+    {
+      "file_id": "57b173599a70f9cde3c73665fb953a882f7eedd1",
+      "sha256": "360f05f5919e5e1b4a83fe293df9e340eb1b1a3649e966aec64aebcbf10857e6"
+    },
+    {
+      "file_id": "57a9dbef21d81d14ba8c5870c3369c6bdfa6eab9",
+      "sha256": "51946cb4d4582f15ab43ae3c75b80a3fa2a8c5f653a78327322d35f3e19b8d88"
+    },
+    {
+      "file_id": "6d3c226461becb7f455ea4f78141298c8217cd9c",
+      "sha256": "27bda635029b8366693a1820886cf0360ada6d35e7117a2781e319d923454bee"
+    },
+    {
+      "file_id": "1f6a1ea2966eb1c9671b2403a6586dd91d778712",
+      "sha256": "45ce47204c56d87aca39d6fa230c855e7a595cacf1196174a6e51e8a2c539be6"
+    },
+    {
+      "file_id": "e5e9afa8d3cd8eca88c92597f4245218a3e248ea",
+      "sha256": "840eb1c877bdc28ef6559f849acb29cd3a36cd9b04e3514aa20de4d43f130598"
+    },
+    {
+      "file_id": "cba76edcffab0490a31ae5ad3228f348f5ec3078",
+      "sha256": "755a3a1aa8614eda9757ef19dedeb8d633ebd951d3c940af20e74b494f89b12f"
+    },
+    {
+      "file_id": "6f8fdbee3e39be9937842fe0a3f98bb8a7b08879",
+      "sha256": "0c89885a495a50105d80f04530a6e6fe5cf8d806c3e126867a59db03a68c1705"
+    },
+    {
+      "file_id": "31049712f5ca9cd7b846227ecb7f9c8a221c353b",
+      "sha256": "b8168027851a49846962ab121532384fed1dcc9a2900c45d0446d615d96567eb"
+    },
+    {
+      "file_id": "e7475d358888b1b8a746bb40922b77fcd7dcf314",
+      "sha256": "b40c5d6cb7ee52b22e140f7b9fa22fd1ca03fe6c998edaa4ad54cad1786efaa1"
+    },
+    {
+      "file_id": "f32dfd57a2971055ab9641f621abc878984af3e1",
+      "sha256": "3225340cb1a3b8ef2527c703b71953ff7e47b853bf2442b9eb0185e37c5d7e4a"
+    },
+    {
+      "file_id": "4241360ee0f8e4a04b5b7f749228aa2aa2beaf2c",
+      "sha256": "03707d28515c2d83ebcf9f29d52246c76706384b6846fd6a1adade88b624038e"
+    },
+    {
+      "file_id": "6ffe3d8881192e0b90155f15506770dd2a34e66b",
+      "sha256": "f43128fcacbd3f2c65955e02a0431be32addd1c0c847677cbe30e9d9054c6aa5"
+    },
+    {
+      "file_id": "b5267f60e0f4840edef453db4119dc48e71a480c",
+      "sha256": "fa07e78f300ec15d58e110675268c1ca9c20a606526330b3b2d0ec40b1e15c9c"
+    },
+    {
+      "file_id": "6c3877ef1427d3ae2d67f54a1c8a04027ce87a15",
+      "sha256": "971ac1c69feeb81e1f469b6385044660df13cc200f78d204d26ef0f70a7f35bb"
+    },
+    {
+      "file_id": "5bb4e1f18a4eab6c40aaaf69bbc7a6120a6881e6",
+      "sha256": "7020ba0944112eb635430ceaddbe287576d06f55ee56840ac3c30feec65af7cd"
+    },
+    {
+      "file_id": "262b150a0fa031412b70146d8d4dda4b69436118",
+      "sha256": "a90db19e0336657d808e8238e705030dd0b68aeaa4f3b5b523c13e95b074bc24"
+    },
+    {
+      "file_id": "6e62d17927f37bac204a56146d064c3d768d5da1",
+      "sha256": "2926d32c3790062a5b29eeb5fdde7a580ae4d09b7a50b4ee9951ae5a42f24e28"
+    },
+    {
+      "file_id": "44b0241a1ec270d311ff29d536f9c071221a48e6",
+      "sha256": "9e716ba5040ead435bec2c3d382c87db1b8f7580ea262e2d8613bc109e3e67ea"
+    },
+    {
+      "file_id": "ec2aa27ad92d90bfb05e071c75b60234152d4d98",
+      "sha256": "e7623286ed0f3269021141e2efdba95eb648a68e725d2c63520ce693623511fb"
+    },
+    {
+      "file_id": "bcd0140b5ceea3d5431734d78d10a2dbc79509c3",
+      "sha256": "5623114bb567a4afd9ffc5167a8d3961682d5d332030d070e735659c18082895"
+    },
+    {
+      "file_id": "78d6549fa69a4d4d1b3ec39b6b779aab5637aa77",
+      "sha256": "c12a57f8fa2bfcb7fcd30f243781390e1567acb369da647e6bdc08885deb0ac4"
+    },
+    {
+      "file_id": "0d97ff9b80cb9b0747dd2345f394a3ca6055ce43",
+      "sha256": "333d23b6eb7615d673190ee77d74e54f76ddbdc2b607eae6d1dd57ef6ed0e77b"
+    },
+    {
+      "file_id": "a73db304fbae0e685a9697ecde9e0c6bdde26189",
+      "sha256": "ecb2fe03608f26ea03b3d8520f86ad1eb51f7d358a97b290467afebc885af325"
+    },
+    {
+      "file_id": "2d494c54fa87fa509334e76c71b3e9bce294d7cf",
+      "sha256": "cb9d830727474c17a8eb624bfd16bbf1f4c306c8d32f831ed58ccdb820f0376a"
+    },
+    {
+      "file_id": "d902d6d283df1975cc98cf12e2262552b56efd1d",
+      "sha256": "808e837526a8c319b9ea5c63466205de900eab6d708445318e9db0a082fe6f31"
+    },
+    {
+      "file_id": "c00fb265cbd9b7d37de9c7ba67d0960394184193",
+      "sha256": "972a98f2fc86307dbcf9c3c9300ff7650bb6bb25943c245d789bce09e889630c"
+    }
+  ],
+  "c20_files": [
+    "Panasonic 18650PF Data/Panasonic 18650PF Data/25degC/C20 OCV and 1C discharge tests_start_of_tests/05-08-17_13.26 C20 OCV Test_C20_25dC.mat"
+  ],
+  "conclusion": "Only steps 3-5 repeat at five temperatures. Step 2 C/20 does not. The archive contains one 25 C C/20 file. Per-temperature C/20 truth cannot be extracted. Use nominal 2.9 Ah primary labels and explicitly reported 25 C sensitivity; do not substitute drive endpoints or fabricate five capacities."
+}

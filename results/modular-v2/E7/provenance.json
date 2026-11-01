@@ -1,0 +1,36 @@
+{
+  "base_run": "runs\\source-v2",
+  "prepared_sha256": "ffce248c0504572abeffc69bcd48ddf79ad72e31df97223ea643c7d5c452923e",
+  "models": [
+    {
+      "seed": 17,
+      "source_model_sha256": "12e659209df65e22db70b29e735084086551ba08082b080a12ca05da7274710a"
+    },
+    {
+      "seed": 42,
+      "source_model_sha256": "8eeff6ae3b5de19dfa070c63d50242bfa1ff72f76ecf059db0a20b889184ba5e"
+    },
+    {
+      "seed": 2026,
+      "source_model_sha256": "0f087a810edc6e71e816d4f0bd8d2836f9752155968111982fa199e1aff120ce"
+    }
+  ],
+  "adaptation": {
+    "seconds": 1800,
+    "epochs": 3,
+    "learning_rate": 0.001,
+    "modes": [
+      "head",
+      "input",
+      "all"
+    ]
+  },
+  "test_cycles": [
+    "UDDS",
+    "HWFET",
+    "LA92",
+    "US06"
+  ],
+  "scope": "Single cell per dataset; chemistry, instruments and protocols also differ",
+  "capacity": "Primary LG nominal 3 Ah. C/20 is retrospective sensitivity, no retraining."
+}

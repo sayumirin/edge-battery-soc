@@ -1,0 +1,15 @@
+seeds: [17, 42, 2026]
+sample_period_s: 1.0
+capacity_ah: 2.9
+capacity_basis: nominal_2.9Ah_shared_reference_not_temperature_calibrated
+window: 30
+train_stride: 120
+eval_stride: 120
+hidden: 16
+epochs: 2
+patience: 2
+batch_size: 128
+learning_rate: 0.003
+adapt_epochs: 1
+adapt_seconds: 900
+threads: 4

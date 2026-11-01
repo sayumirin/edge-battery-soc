@@ -1,0 +1,116 @@
+{
+  "status": "passed",
+  "stages": {
+    "E1": {
+      "rows": 12,
+      "sha256": "561acb908d4f79584df9024c079457970d47ea8c49159b812fa47f07a877cb3f"
+    },
+    "E2": {
+      "rows": 48,
+      "sha256": "604fa41f8a7e8872406c62d99f6cf1f2ca3e5ef02b2c2519b948e205c1658b39"
+    },
+    "E3": {
+      "rows": 120,
+      "sha256": "da8d64cea3b9344a7a96bc6d663018f0d0d4c93f4ae919a20e6836f090cc08b6"
+    },
+    "E4": {
+      "rows": 1740,
+      "sha256": "23763f0daf9b7daada8ebdcecc20633735ef03b8fe80cf79d7a1a94d646cad7e"
+    },
+    "E5": {
+      "rows": 15,
+      "sha256": "35e57e9b7de6993c33dc2ddb8607d49335bf805bb6b16c94be493d9083a38499"
+    },
+    "E6": {
+      "rows": 60,
+      "sha256": "97e037a11cdcc949b992d5350cfde2b24f5b254a253cfc0340803b70595fd050"
+    },
+    "E7": {
+      "rows": 150,
+      "sha256": "687e89c970210884f9e1875f0c17a1cd1d01d658bbbab19aff79230274a7d744"
+    },
+    "E8": {
+      "rows": 20,
+      "sha256": "48709cd679e01a93f1c9d88aecd71e0b03c838ddb0339b083702371f76574416"
+    },
+    "E9": {
+      "rows": 384,
+      "sha256": "fd3cdf8b6c8c5e95b79519cb29a4898c802776024de5ab7ab068a1f714ebee47"
+    },
+    "streaming": {
+      "rows": 240,
+      "sha256": "a3ec3adbe4235b0816bf1cd66412b5ab7998933faed0ba34d27a01c40673cc26"
+    }
+  },
+  "ensemble_members": [
+    17,
+    42,
+    2026,
+    101,
+    314
+  ],
+  "bidirectional_bias": true,
+  "streaming_files": 45,
+  "stream_samples": 577041,
+  "matched_stream_window_endpoints": true,
+  "independent_configs": true,
+  "persisted_inputs_only": true,
+  "source": "runs\\source-v3",
+  "source_manifest_sha256": "b873e4d0bdca43f411f862031270f48308c1da5110d70539f7bd7154d4f39c73",
+  "protocol": {
+    "temperature_scale": [
+      25.0,
+      20.0
+    ],
+    "adaptation": {
+      "E3": {
+        "runs": 36,
+        "seconds": 1800,
+        "stride": 10,
+        "batch_size": 32,
+        "steps": 300,
+        "learning_rate": 0.001,
+        "modes": [
+          "head",
+          "input",
+          "all"
+        ]
+      },
+      "E7": {
+        "seconds": 1800,
+        "stride": 10,
+        "batch_size": 32,
+        "steps": 300,
+        "learning_rate": 0.001,
+        "modes": [
+          "head",
+          "input",
+          "all"
+        ]
+      },
+      "E9": {
+        "steps_per_update": 100,
+        "updates": 3,
+        "batch_size": 32,
+        "stride": 10,
+        "learning_rate": 0.001
+      }
+    }
+  },
+  "unchanged_protocol_regression": {
+    "E5": {
+      "matched_rows": 15,
+      "max_rmse_delta": 0.0
+    }
+  },
+  "fix_check_reproduction": {
+    "reference": "results/fix-check-v1 variant B_phys_T",
+    "matched_rows": 39,
+    "max_rmse_delta": 9.5367431640625e-06
+  },
+  "limitations": [
+    "MCU not measured",
+    "Five-model intervals reuse early-stopping validation",
+    "Offline 1 Hz interpolation remains noncausal; streaming evaluation changes state lifetime only"
+  ]
+}

@@ -1,0 +1,41 @@
+base_run: runs/delivery-20261029T013807/mvp
+seeds:
+- 17
+- 42
+- 2026
+robust_eval_stride: 30
+noise:
+  voltage:
+  - 0
+  - 1
+  - 2
+  - 4
+  current:
+  - 0
+  - 1
+  - 2
+  - 4
+  temperature:
+  - 0
+  - 1
+  - 2
+  - 4
+  dropout:
+  - 0
+  - 0.01
+  - 0.05
+  - 0.1
+  hold:
+  - 1
+  - 2
+  - 5
+  - 10
+  crop:
+  - 0
+  - 0.25
+  - 0.5
+interval_coverage: 0.9
+online_chunk_seconds: 600
+online_chunks: 3
+online_learning_rate: 0.0001
+online_epochs: 1

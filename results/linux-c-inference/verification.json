@@ -1,0 +1,35 @@
+[
+  {
+    "seed": 17,
+    "max_abs_error": 1.2218952178955078e-06,
+    "real_stream_steps": 15000,
+    "state_bytes": 128,
+    "weight_float_bytes": 14424,
+    "explicit_step_float_workspace_bytes": 176,
+    "host_seconds_per_step": 2.04561e-06,
+    "compiler": "/usr/bin/cc",
+    "scope": "host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead"
+  },
+  {
+    "seed": 42,
+    "max_abs_error": 8.158385753631592e-07,
+    "real_stream_steps": 15000,
+    "state_bytes": 128,
+    "weight_float_bytes": 14424,
+    "explicit_step_float_workspace_bytes": 176,
+    "host_seconds_per_step": 2.00765e-06,
+    "compiler": "/usr/bin/cc",
+    "scope": "host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead"
+  },
+  {
+    "seed": 2026,
+    "max_abs_error": 3.5762786865234375e-07,
+    "real_stream_steps": 15000,
+    "state_bytes": 128,
+    "weight_float_bytes": 14424,
+    "explicit_step_float_workspace_bytes": 176,
+    "host_seconds_per_step": 1.8578e-06,
+    "compiler": "/usr/bin/cc",
+    "scope": "host C float32 only; not MCU RAM peak or latency; workspace excludes compiler stack overhead"
+  }
+]

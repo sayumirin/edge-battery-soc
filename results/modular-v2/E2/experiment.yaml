@@ -1,0 +1,14 @@
+prepared: data/interim
+source: runs\source-v2
+seeds:
+- 17
+- 42
+- 2026
+experiment: E2
+temperatures:
+- 10
+- 0
+- -10
+- -20
+output: results/modular-v2/E2
+initial_soc_error_pp: 5

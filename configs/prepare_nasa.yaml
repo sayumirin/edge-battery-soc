@@ -1,0 +1,10 @@
+dataset: nasa
+archive: data/raw/nasa/battery.zip
+output: data/interim/nasa
+cells:
+- B0005
+- B0006
+- B0007
+- B0018
+horizon_seconds: 600
+capacity_ah: 2.0
