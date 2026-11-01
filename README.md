@@ -2,11 +2,8 @@
 
 State-of-charge (SoC) estimation for lithium-ion cells under ambient-temperature shift, covering few-shot adaptation, a physical baseline, uncertainty diagnostics, int8 quantization and a portable C inference kernel.
 
-The study asks three questions. How does a small recurrent SoC estimator trained at 25 °C behave at 10, 0, −10 and −20 °C? What does it take to recover accuracy? What does the model cost on edge hardware? All results come from public laboratory datasets, with file-level leakage controls and three random seeds.
 
-> **Scope.** This is a research prototype, not a validated battery management system. The C kernel has been checked on a host computer only; no microcontroller measurements have been made.
-
-A six-page technical report is in [`report/battery-shift-report.pdf`](report/battery-shift-report.pdf).
+A technical report is in [`report/battery-shift-report.pdf`](report/battery-shift-report.pdf).
 
 ## Key results
 
@@ -161,5 +158,3 @@ Both revisions were chosen after seeing test results. No hyperparameters were sw
 - P. Kollmeyer, *Panasonic 18650PF Li-ion Battery Data*, Mendeley Data, V1, 2018. doi:10.17632/wykht8y7tg.1
 - P. Kollmeyer, M. Naguib and M. Skells, *LG 18650HG2 Li-ion Battery Data*, Mendeley Data, V2, 2020. doi:10.17632/b5mj79w5w9.2
 - B. Saha and K. Goebel, *Battery Data Set*, NASA Ames Prognostics Data Repository, 2007.
-
-This project transforms the original recordings (sign conventions, deduplication, resampling, label computation). The dataset authors have not reviewed or endorsed the models or conclusions here.
