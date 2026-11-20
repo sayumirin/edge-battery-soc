@@ -15,6 +15,7 @@ import torch
 from omegaconf import OmegaConf
 from battery_shift.models import GRU
 from battery_shift.data import FEATURES
+from battery_shift.params import float_count, from_state_dict, render_header
 
 
 def compile_c(source, out):
@@ -79,18 +80,11 @@ def main():
         sd.mkdir(exist_ok=True)
         model = GRU(cfg.hidden).eval()
         model.load_state_dict(torch.load(run / str(seed) / "float32.pt", weights_only=True))
-        arrays = {name.replace(".", "_"): v.numpy().flatten() for name, v in model.state_dict().items()}
-        arrays.update(
-            feature_mean=np.array(stats["mean"]),
-            feature_std=np.array(stats["std"]),
-            feature_mask=np.array(cfg.get("feature_mask", [1, 1, 1])),
+        params = from_state_dict(
+            model.state_dict(), cfg.hidden, stats["mean"], stats["std"], cfg.get("feature_mask", [1, 1, 1]),
+            name=f"{run.name}-seed{seed}", provenance=dict(run=run.name, seed=seed),
         )
-        header = f"#define HIDDEN {cfg.hidden}\n"
-        for name, a in arrays.items():
-            header += (
-                f"static const float {name}[{len(a)}] = {{" + ",".join(f"{float(v):.9e}f" for v in a) + "};\n"
-            )
-        (sd / "weights.h").write_text(header)
+        (sd / "weights.h").write_text(render_header(params))
         library, compiler = compile_c(Path("embedded/gru.c").resolve(), sd)
         dll = ctypes.CDLL(str(library))
         state = (ctypes.c_float * cfg.hidden)()
@@ -133,7 +127,7 @@ def main():
                 max_abs_error=maximum,
                 real_stream_steps=steps,
                 state_bytes=dll.battery_state_bytes(),
-                weight_float_bytes=sum(len(a) * 4 for a in arrays.values()),
+                weight_float_bytes=float_count(params) * 4,
                 explicit_step_float_workspace_bytes=(cfg.hidden + 3 + 3 + 6) * 4,
                 host_seconds_per_step=latency,
                 compiler=compiler,

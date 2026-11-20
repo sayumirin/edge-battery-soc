@@ -2,6 +2,8 @@
 
 `gru.c` implements the model's input normalization, input affine layer, reset-after GRU and linear output. `scripts/verify_c.py` exports the selected trained checkpoint as `weights.h`, including preprocessing statistics and the optional feature mask, then compiles and checks the implementation.
 
+The released parameters live in [`../params/gru-source-v3.json`](../params/gru-source-v3.json). `weights.h` is generated from that file (`battery_shift.params.render_header`) and defines `PARAMS_ID`, which `battery_params_id()` returns, so every build names the parameter file it was built from. `b2b_main.c` is the back-to-back test driver that `scripts/verify_arm.py` builds for x86-64 and aarch64.
+
 ```text
 uv run python scripts/verify_c.py --run runs/source-v3 --output results/c-inference-v3
 ```

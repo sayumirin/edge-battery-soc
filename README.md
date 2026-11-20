@@ -1,6 +1,6 @@
 # Edge Battery SoC
 
-State-of-charge (SoC) estimation for lithium-ion cells under ambient-temperature shift, covering few-shot adaptation, a physical baseline, uncertainty diagnostics, int8 quantization and a portable C inference kernel.
+State-of-charge (SoC) estimation for lithium-ion cells under ambient-temperature shift, covering few-shot adaptation, a physical baseline, uncertainty diagnostics, int8 quantization and a portable C inference kernel delivered with versioned parameters and ARM back-to-back tests.
 
 
 A technical report is in [`report/battery-shift-report.pdf`](report/battery-shift-report.pdf).
@@ -23,7 +23,7 @@ The table reports SoC RMSE in percentage points over the SoC 40–100% range, as
 - **Cross-cell transfer.** On an LG HG2 cell, all-parameter adaptation reaches 5.6–11.2 pp from 10 to −20 °C. At 25 °C, where the source model already fits, it overfits a single drive profile (4.02 → 7.09 pp), while output-layer tuning stays at 4.02 pp.
 - **Online updates forget.** Three chronological updates reduce −20 °C error from 69.81 to 14.17 pp, but 25 °C error rises from 2.31 to 14.6–16.3 pp.
 - **Ensemble intervals flag the shift but do not bound the error.** Five-model interval width grows from 5.83 pp at 25 °C to 62.55 pp at −20 °C. All members err in the same direction, so cold-temperature coverage is near zero.
-- **Edge cost.** Dynamic int8 quantization reduces the 3,597-parameter model from 17,549 to 9,097 serialized bytes, with 25 °C RMSE moving from 2.31 to 2.34 pp. The float32 C99 kernel matches PyTorch to within 4.8 × 10⁻⁷ over 75,000 real-data steps on five models. It needs 128 bytes of persistent state and 14,424 bytes of weights and preprocessing arrays.
+- **Edge cost.** Dynamic int8 quantization reduces the 3,597-parameter model from 17,549 to 9,097 serialized bytes, with 25 °C RMSE moving from 2.31 to 2.34 pp. The float32 C99 kernel matches PyTorch to within 4.8 × 10⁻⁷ over 75,000 real-data steps on five models. It needs 128 bytes of persistent state and 14,424 bytes of weights and preprocessing arrays. Cross-compiled for aarch64 and run under QEMU, it stays within 3.6 × 10⁻⁷ of PyTorch on all 15 test drive cycles (192,347 steps); see [Embedded delivery](#embedded-delivery).
 - **State of health (E5).** On NASA cells, the SoH RMSE (capacity ratio) is 0.024 with random cycle splits and 0.023–0.097 when a whole cell is held out. Random splits are optimistic because the same cell appears in training and test data.
 
 ## Data
@@ -66,11 +66,32 @@ The table reports SoC RMSE in percentage points over the SoC 40–100% range, as
 - a voltage/current-only GRU ablation.
 
 
+## Embedded delivery
+
+The C kernel's parameters are kept apart from its code, in a versioned file: [`params/gru-source-v3.json`](params/gru-source-v3.json). It holds the weights, input normalization and feature mask of source model seed 17, a SHA-256 of its contents and the SHA-256 of the checkpoint it was exported from. `weights.h` is generated from this file and is never edited by hand, and each build reports the parameter version through `battery_params_id()`.
+
+On every push, [CI](.github/workflows/tests.yml) validates the file (tensor shapes, finite values, checksum), builds the kernel natively and cross-compiled for aarch64, and feeds both builds all 15 test drive cycles (US06, UDDS and LA92 from 25 to −20 °C). Every output is compared with PyTorch built from the same file.
+
+| Build | Runs on | Steps | Max abs error vs PyTorch |
+|---|---|---|---|
+| x86-64 Linux, gcc 13 | native | 192,347 | 3.6 × 10⁻⁷ |
+| aarch64 Linux, gcc 13 | QEMU user mode | 192,347 | 3.6 × 10⁻⁷ |
+| Cortex-M4F, arm-none-eabi-gcc 13 | compiled only | — | — |
+
+The Cortex-M4F object takes 15,100 bytes of code and constant weights before linking the math library. Pushing a tag `v<version>` that matches the parameter file reruns the test and [publishes a release](.github/workflows/release.yml) with the kernel source, the generated header, the parameter file and the test report. The release is refused if the tag and the file's version differ.
+
+```bash
+uv run python scripts/export_params.py --run runs/source --seed 17 --version 1.0.0 --output params/gru-source-v3.json
+uv run python scripts/verify_arm.py --params params/gru-source-v3.json --output runs/arm-b2b
+```
+
+`verify_arm.py` runs on Linux and needs `gcc-aarch64-linux-gnu`, `libc6-dev-arm64-cross`, `qemu-user-static`, `gcc-arm-none-eabi` and `libnewlib-arm-none-eabi`.
+
 ## Reproducing
 
 **Requirements.**
 - Python 3.11 and [uv](https://docs.astral.sh/uv/). Dependencies are pinned in `uv.lock`.
-- A C compiler (MSVC Build Tools, gcc or clang) for the C parity check.
+- A C compiler (MSVC Build Tools, gcc or clang) for the C parity check. The ARM back-to-back test needs the Linux packages listed under [Embedded delivery](#embedded-delivery).
 - The official LG and Panasonic archives. Download them in a browser with "Download All" from their Mendeley Data pages, and save them as `data/raw/lg/lg.zip` and `data/raw/panasonic-official.zip`. The scripts verify their hashes.
 
 Install dependencies and run the tests:
@@ -122,11 +143,10 @@ Both revisions were chosen after seeing test results. No hyperparameters were sw
 - **Single cell.** Each temperature comes from one Panasonic cell, tested from 25 °C down to −20 °C. Temperature and ageing are therefore confounded.
 - **Resampling.** Resampling to 1 Hz is offline interpolation, not a causal online implementation.
 - **Intervals.** Ensemble intervals reuse validation data for early stopping, so their coverage is descriptive only.
-- **Deployment.** Dynamic int8 is a PyTorch CPU format; the portable C kernel is float32. Serialized size and host timing are not measurements of MCU Flash, RAM, power or latency.
+- **Deployment.** Dynamic int8 is a PyTorch CPU format; the portable C kernel is float32. Serialized size and host timing are not measurements of MCU Flash, RAM, power or latency. QEMU user mode checks the aarch64 instruction set and C library, not an MCU, and the Cortex-M4F build is compiled but not linked or run. The back-to-back test checks numerical agreement with PyTorch, not SoC accuracy.
 - **Validation coverage.**
-  - The current results were produced on Windows. Linux/GCC cross-validation covers the earlier protocol only.
+  - The experiment results were produced on Windows. Linux/GCC cross-validation covers the earlier protocol, plus C parity of the released parameter file.
   - `reproduce_all.py` has not yet been run end to end with the current stages.
-  - The workflow in `.github/workflows/tests.yml` has not been verified on GitHub.
 
 ## Citation of data
 

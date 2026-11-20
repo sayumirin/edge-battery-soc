@@ -38,6 +38,11 @@ API float battery_step(BatteryState *state, const float raw[3]) {
     return y;
 }
 API size_t battery_state_bytes(void) { return sizeof(BatteryState); }
+/* Which parameter file the build was generated from (name, version, sha256 prefix). */
+#ifndef PARAMS_ID
+#define PARAMS_ID "unversioned"
+#endif
+API const char *battery_params_id(void) { return PARAMS_ID; }
 /* C runtime clock is platform-dependent; repeat enough steps for timer resolution. */
 API double battery_benchmark(const float raw[3], int steps) {
     BatteryState state; volatile float sink=0;

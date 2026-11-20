@@ -5,6 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install ARM cross toolchains and QEMU
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends gcc-aarch64-linux-gnu libc6-dev-arm64-cross \
+            qemu-user-static gcc-arm-none-eabi libnewlib-arm-none-eabi
       - uses: astral-sh/setup-uv@v6
         with:
           python-version: '3.11'
@@ -15,3 +20,14 @@ jobs:
       - run: uv run python scripts/prepare_data.py
       - run: uv run python -m battery_shift.run --config configs/smoke.yaml --output runs/ci-smoke
       - run: uv run python scripts/verify_c.py --run runs/ci-smoke --output runs/ci-c
+      - name: Back-to-back test of the released parameters on x86-64, aarch64 (QEMU) and Cortex-M4F
+        run: uv run python scripts/verify_arm.py --params params/gru-source-v3.json --output runs/ci-arm
+      - name: Publish the test report
+        run: cat runs/ci-arm/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: arm-b2b-report
+          path: |
+            runs/ci-arm/REPORT.md
+            runs/ci-arm/report.json
+            runs/ci-arm/weights.h

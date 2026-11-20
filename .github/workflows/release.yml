@@ -1,0 +1,34 @@
+name: release
+# Push a tag v<version> matching params/gru-source-v3.json to test and publish that parameter set.
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ARM cross toolchains and QEMU
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends gcc-aarch64-linux-gnu libc6-dev-arm64-cross \
+            qemu-user-static gcc-arm-none-eabi libnewlib-arm-none-eabi
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.11'
+      - run: uv sync --frozen
+      - run: uv run pytest
+      - run: uv run python scripts/download.py
+      - run: uv run python scripts/prepare_data.py
+      - run: uv run python scripts/verify_arm.py --params params/gru-source-v3.json --output dist/check
+      - run: >-
+          uv run python scripts/package_release.py --params params/gru-source-v3.json
+          --check dist/check --tag "$GITHUB_REF_NAME" --output dist
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create "$GITHUB_REF_NAME" "dist/edge-soc-$GITHUB_REF_NAME.tar.gz" dist/SHA256SUMS
+          --title "edge-soc $GITHUB_REF_NAME" --notes-file dist/check/REPORT.md
