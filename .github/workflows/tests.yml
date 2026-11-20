@@ -2,14 +2,11 @@ name: tests
 on: [push, pull_request]
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Install ARM cross toolchains and QEMU
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends gcc-aarch64-linux-gnu libc6-dev-arm64-cross \
-            qemu-user-static gcc-arm-none-eabi libnewlib-arm-none-eabi
+        run: bash scripts/install_arm_toolchain.sh
       - uses: astral-sh/setup-uv@v6
         with:
           python-version: '3.11'

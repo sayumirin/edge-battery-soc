@@ -25,12 +25,14 @@ from battery_shift.params import identity, load, normalize, render_header, to_mo
 ROOT = Path(__file__).resolve().parents[1]
 TOLERANCE = 1e-4  # same bound as scripts/verify_c.py
 CFLAGS = ["-std=c99", "-O2", "-Wall", "-Wextra", "-Werror"]
+# Ubuntu 24.04 ships qemu-aarch64-static; newer releases ship a static qemu-aarch64 instead.
+QEMU = shutil.which("qemu-aarch64-static") or shutil.which("qemu-aarch64") or "qemu-aarch64-static"
 TARGETS = {
     "x86_64-linux": dict(cc="gcc", flags=[], runner=[]),
-    "aarch64-linux": dict(cc="aarch64-linux-gnu-gcc", flags=["-static"], runner=["qemu-aarch64-static"]),
+    "aarch64-linux": dict(cc="aarch64-linux-gnu-gcc", flags=["-static"], runner=[Path(QEMU).name]),
 }
 CORTEX_M4 = ["-mcpu=cortex-m4", "-mthumb", "-mfloat-abi=hard", "-mfpu=fpv4-sp-d16"]
-TOOLS = ["gcc", "aarch64-linux-gnu-gcc", "qemu-aarch64-static", "arm-none-eabi-gcc", "arm-none-eabi-size"]
+TOOLS = ["gcc", "aarch64-linux-gnu-gcc", Path(QEMU).name, "arm-none-eabi-gcc", "arm-none-eabi-size"]
 
 
 def run(cmd):
